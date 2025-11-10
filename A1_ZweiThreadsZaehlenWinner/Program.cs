@@ -20,7 +20,7 @@ class Program
 
         threadA.Join();
         threadB.Join();
- 
+
 
     }
 
@@ -29,7 +29,12 @@ class Program
         for (int i = 1; i <= 100; i++)
         {
             Thread.Sleep(100);
-            counterUp++;
+            counterUp = 1;
+            if (counterUp == counterDown)
+            {
+                Console.WriteLine(counterUp);
+                Console.WriteLine(counterDown);
+            }
         }
 
     }
@@ -40,6 +45,13 @@ class Program
         {
             Thread.Sleep(100);
             counterDown = i;
+            if (counterUp == counterDown)
+            {
+                Console.WriteLine(counterUp);
+                Console.WriteLine(counterDown);
+
+
+            }
         }
 
     }
