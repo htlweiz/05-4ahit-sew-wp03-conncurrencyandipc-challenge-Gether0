@@ -14,9 +14,6 @@ class Program
         Console.WriteLine("Übung 3: Producer-Consumer");
         Console.WriteLine("==========================================\n");
 
-        // TODO
-
-
         Console.WriteLine("Producer und Consumer gestartet...\n");
 
         for (int i = 1; i <= 5; i++)
@@ -24,16 +21,16 @@ class Program
             AllProducer.Add(new Producer(i, buffer));
         }
 
-        if (buffer.Count > 50)
+        if (buffer.Count > 10)
         {
             foreach (var producer in AllProducer)
             {
-                producer.Stop(buffer);
+                producer.Stop();
             }
         }
 
         Consumer consumer = new Consumer(buffer);
-        
+
 
         // Überwachung: Jede Sekunde Queue-Füllstand ausgeben und auf >50 prüfen
 

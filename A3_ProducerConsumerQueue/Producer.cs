@@ -20,7 +20,6 @@ public class Producer
         // Thread im Konstruktor startet
         producerThread = new Thread(() => ProduceNumbers(buffer));
         producerThread.Start();
-        Stop(buffer);
     }
 
     private void ProduceNumbers(Queue<int> buffer)
@@ -33,7 +32,7 @@ public class Producer
         }
     }
 
-    public void Stop(Queue<int> buffer)
+    public void Stop()
     {
         shouldStop = true;
     }
