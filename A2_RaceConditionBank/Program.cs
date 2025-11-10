@@ -24,7 +24,7 @@ class Program
             for (int i = 0; i < 10; i++)
             {
                 account.Deposit(100);
-                Thread.Sleep(10);
+                Thread.Sleep(1);
                 account.Withdraw(150);
             }
         });
