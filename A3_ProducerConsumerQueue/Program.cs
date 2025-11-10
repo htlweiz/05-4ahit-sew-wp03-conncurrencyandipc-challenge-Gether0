@@ -10,6 +10,7 @@ class Program
     public static void Main(string[] args)
     {
         Queue<int> buffer = new Queue<int>();
+        List<Producer> AllProducer = new List<Producer>();
         Console.WriteLine("Übung 3: Producer-Consumer");
         Console.WriteLine("==========================================\n");
 
@@ -20,8 +21,19 @@ class Program
 
         for (int i = 1; i <= 5; i++)
         {
-            new Producer(i, buffer);
+            AllProducer.Add(new Producer(i, buffer));
         }
+
+        if (buffer.Count > 50)
+        {
+            foreach (var producer in AllProducer)
+            {
+                producer.Stop(buffer);
+            }
+        }
+
+        Consumer consumer = new Consumer(buffer);
+        
 
         // Überwachung: Jede Sekunde Queue-Füllstand ausgeben und auf >50 prüfen
 

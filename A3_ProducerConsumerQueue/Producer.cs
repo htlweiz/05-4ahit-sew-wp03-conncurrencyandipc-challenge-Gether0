@@ -35,9 +35,6 @@ public class Producer
 
     public void Stop(Queue<int> buffer)
     {
-       if(buffer.Count > 50)
-       {
         shouldStop = true;
-       }
     }
 }
