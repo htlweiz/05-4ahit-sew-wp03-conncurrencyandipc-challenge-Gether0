@@ -7,7 +7,6 @@ class Program
 {
     public static void Main(string[] args)
     {
-        List<Thread> threads = new List<Thread>();
         Console.WriteLine("Übung 2: Race Condition – Bankkonto");
         Console.WriteLine("==========================================\n");
 
@@ -29,11 +28,8 @@ class Program
             }
         });
 
-
         thread1.Start();
-
         thread1.Join();
-
         Console.WriteLine($"Endkontostand: {account.GetBalance()} EUR");
     }
 }

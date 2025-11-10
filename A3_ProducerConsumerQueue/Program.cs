@@ -9,24 +9,35 @@ class Program
 {
     public static void Main(string[] args)
     {
+        Queue<int> buffer = new Queue<int>();
         Console.WriteLine("Übung 3: Producer-Consumer");
         Console.WriteLine("==========================================\n");
 
-       // TODO
-       
+        // TODO
+
 
         Console.WriteLine("Producer und Consumer gestartet...\n");
 
+        for (int i = 1; i <= 5; i++)
+        {
+            new Producer(i, buffer);
+        }
+
+        if(buffer.Count > 50)
+        {
+            Console.WriteLine("50 Elemente erreicht");
+        }
+
         // Überwachung: Jede Sekunde Queue-Füllstand ausgeben und auf >50 prüfen
-        
+
         // TODO
 
 
         // Alle Producer stoppen
-       
+
 
         // Consumer stoppen
-       
-       
+
+
     }
 }
