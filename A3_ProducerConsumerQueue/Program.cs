@@ -23,11 +23,6 @@ class Program
             new Producer(i, buffer);
         }
 
-        if(buffer.Count > 50)
-        {
-            Console.WriteLine("50 Elemente erreicht");
-        }
-
         // Überwachung: Jede Sekunde Queue-Füllstand ausgeben und auf >50 prüfen
 
         // TODO

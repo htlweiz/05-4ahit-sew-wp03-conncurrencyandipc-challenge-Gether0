@@ -36,6 +36,9 @@ public class Producer
 
     public void Stop()
     {
+       if(buffer.Count > 50)
+       {
         shouldStop = true;
+       }
     }
 }
