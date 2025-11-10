@@ -11,20 +11,19 @@ public class Producer
     private readonly Random random;
     private volatile bool shouldStop = false;
     private Thread? producerThread;
-    private Queue<int> buffer = new Queue<int>();
 
     public Producer(int id, Queue<int> buffer)
     {
         this.producerId = id;
         this.random = new Random(id * 1000); // Verschiedene Seeds für verschiedene Producer
-        this.buffer = buffer;
 
         // Thread im Konstruktor startet
-        producerThread = new Thread(ProduceNumbers);
+        producerThread = new Thread(() => ProduceNumbers(buffer));
         producerThread.Start();
+        Stop(buffer);
     }
 
-    private void ProduceNumbers()
+    private void ProduceNumbers(Queue<int> buffer)
     {
         while (!shouldStop)
         {
@@ -34,7 +33,7 @@ public class Producer
         }
     }
 
-    public void Stop()
+    public void Stop(Queue<int> buffer)
     {
        if(buffer.Count > 50)
        {
