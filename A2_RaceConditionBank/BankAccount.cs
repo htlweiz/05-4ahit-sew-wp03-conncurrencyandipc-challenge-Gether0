@@ -13,12 +13,15 @@ public class BankAccount
     }
     
     public void Deposit(int amount) 
-    { 
-       
+    {
+        int newBalanceD = balance;
+        balance = newBalanceD + amount;
     }
     
-    public void Withdraw(int amount) 
+    public void Withdraw(int amount)
     { 
+        int newBalanceW = balance;
+        balance = newBalanceW - amount;
         
     }
     

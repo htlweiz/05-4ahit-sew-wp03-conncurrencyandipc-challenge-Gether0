@@ -18,6 +18,29 @@ class Program
     
     private static void PerformBankOperations(BankAccount account)
     {
+        Thread thread1 = new Thread(() =>
+        {
+            for (int i = 0; i < 10; i++)
+            {
+            account.Deposit(500);
+            Thread.Sleep(10);
+            }
+        });
+
+        Thread thread2 = new Thread(() =>
+        {
+            for (int i = 0; i < 10; i++)
+            {
+            account.Withdraw(300);
+            Thread.Sleep(10);
+            }
+        });
+
+        thread1.Start();
+        thread2.Start();
+
+        thread1.Join();
+        thread2.Join();
         
     }
 }
